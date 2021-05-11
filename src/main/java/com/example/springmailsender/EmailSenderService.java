@@ -35,11 +35,18 @@ public class EmailSenderService {
         message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailAddress));
         message.setSubject("Eid er salami");
 
-        message.setContent("Eid Mubarak! May Allah fulfill all your dreams and hopes.\n" +
-                "\n" +
-                "May the blessings of Allah be with you and your family forever and always. Eid Mubarak!\n" +
-                "\n" +
-                "May Allah bless your life and fulfill all your wishes and Dua’s. Eid Mubarak.", "text/html");
+        message.setContent("<!DOCTYPE html>\n" +
+                "<html lang=\"en\">\n" +
+                "<head>\n" +
+                "    <meta charset=\"UTF-8\">\n" +
+                "    <title>Title</title>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "  <h1>Dear Fellow Brothers and sisters:</h1>\n" +
+                "  <img style=\"max-width: 100%; height: auto\"\n" +
+                "       src=\"https://drive.google.com/uc?id=1v2E9mqocmRCgNEfIUoG6w7uUjLfrJCot\" alt=\"Salami\">\n" +
+                "</body>\n" +
+                "</html>", "text/html");
 
         message.setSentDate(new Date());
         Transport.send(message);
